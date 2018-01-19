@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var colors = ["red","blue","green"];
+        // alert(colors.valueOf());
+        // alert(colors);
+
+
+
+    // 自己实现一个带有优先级的Queue
+    // 1 low 2 normal 3 high
+    // var queue = new Queue(prorioty, value);
+    // queue.push(1, any1)
+    // queue.push(1, any2)
+    // queue.push(1, any3)
+    // queue.push(1, any4)
+    // queue.push(2, any5)
+    // queue.push(2, any6)
+    // queue.push(3, any7)
+    // queue.push(2, any8)
+    // queue.push(2, any9)
+    // queue.shift() // any7
+
+        function Queue(){
+            var a = [];
+
+            function QueueEle(prorioty, value){
+            this.prorioty = prorioty;
+            this.value = value;
+            }
+
+            this.push = function(v1,v2){
+                return a.push(new QueueEle(v1,v2));
+            }
+
+            this.shift = function(){
+               for(i = 0; i < a.length - 1 ; i++){
+                    if(a[i].prorioty > a[0].prorioty){
+                        var temp = a[0];
+                        a[0] = a[i];
+                        a[i] = a[0];
+                    }
+                } 
+                return a.shift();
+            }
+        }
+        
+        
+
+
+     
+
+    </script>
+</body>
+</html>
