@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // var colors = ["red","blue","green"];
@@ -14,49 +16,100 @@
 
 
 
-    // 自己实现一个带有优先级的Queue
-    // 1 low 2 normal 3 high
-    // var queue = new Queue(prorioty, value);
-    // queue.push(1, any1)
-    // queue.push(1, any2)
-    // queue.push(1, any3)
-    // queue.push(1, any4)
-    // queue.push(2, any5)
-    // queue.push(2, any6)
-    // queue.push(3, any7)
-    // queue.push(2, any8)
-    // queue.push(2, any9)
-    // queue.shift() // any7
+        // 自己实现一个带有优先级的Queue
+        // 1 low 2 normal 3 high
+        // var queue = new Queue(prorioty, value);
+        // queue.push(1, any1)
+        // queue.push(1, any2)
+        // queue.push(1, any3)
+        // queue.push(1, any4)
+        // queue.push(2, any5)
+        // queue.push(2, any6)
+        // queue.push(3, any7)
+        // queue.push(2, any8)
+        // queue.push(2, any9)
+        // queue.shift() // any7
 
-        function Queue(){
+        function Queue() {
             var a = [];
 
-            function QueueEle(prorioty, value){
-            this.prorioty = prorioty;
-            this.value = value;
+            function QueueEle(prorioty, value) {
+                this.prorioty = prorioty;
+                this.value = value;
             }
 
-            this.push = function(v1,v2){
-                return a.push(new QueueEle(v1,v2));
+            // this.push = function (v1, v2) {
+            //     return a.push(new QueueEle(v1, v2));
+            // }
+
+            // this.shift = function () {
+            //     var max = a[0];
+            //     var index = 0;
+            //     for (i = 0; i < a.length; i++) {
+            //         if(a[i].prorioty > max.prorioty){
+            //             max = a[i];
+            //             index = i;
+            //         }
+            //     }
+            //     a.unshift(max);
+            //     a.splice(index + 1, 1);
+            //     return a.shift();
+            // }
+            
+            this.push = function (p, v) {
+                if(a.length = 0){
+                    return a.push(new QueueEle(p, v));
+                }else for(i = 0; p > a[i].prorioty; i++){
+                     a.splice(i, 0, new QueueEle(p, v));
+                }
             }
 
             this.shift = function(){
-               for(i = 0; i < a.length - 1 ; i++){
-                    if(a[i].prorioty > a[0].prorioty){
-                        var temp = a[0];
-                        a[0] = a[i];
-                        a[i] = a[0];
-                    }
-                } 
                 return a.shift();
             }
+
+            this.toString = function(){
+                a.toString;
+            }
         }
-        
-        
 
+        var testQueue = new Queue();
+        // case 1
+        console.log('morean one and order priority in this case');
+        testQueue.push(2, "normal 1");
+        testQueue.push(1, "low 1");
+        testQueue.push(1, "l thow 2");
+        testQueue.push(2, "normal 2");
+        testQueue.push(2, "normal 3");
+        testQueue.push(3, "high 1");
 
-     
+        console.log(testQueue.shift());
+        console.log(testQueue.shift());
+        console.log(testQueue.shift());
+        console.log(testQueue.shift());
+        console.log(testQueue.shift());
+        console.log(testQueue.shift());
+        // h1 n1 n2 n3 l1 l2
+
+        // case 2
+
+        console.log('more than one and unorder priority in this case')
+        testQueue.push(2, "normal 2");
+        testQueue.push(2, "normal 1") 
+        testQueue.push(1, "low 2");
+        testQueue.push(3, "high 1");
+        testQueue.push(1, "low 1");
+        testQueue.push(2, "normal 3");
+
+        console.log(testQueue.shift());
+        console.log(testQueue.shift());
+        console.log(testQueue.shift());
+        console.log(testQueue.shift());
+        console.log(testQueue.shift());
+        console.log(testQueue.shift());
+        
 
     </script>
 </body>
+
 </html>
