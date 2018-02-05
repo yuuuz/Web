@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function TaoBaoFlow() {
+
+        }
+        TaoBaoFlow.prototype.searchGoods = function () { }
+        TaoBaoFlow.prototype.selectGoods = function () { }
+        TaoBaoFlow.prototype.buyGoods = function () {
+            console.log('请等待卖家发货')
+        }
+        TaoBaoFlow.prototype.salerSendGoods = function () {
+            console.log('卖家已发货')
+        }
+        TaoBaoFlow.prototype.selectRefreshGoods= function(){
+            console.log('选择较为新鲜的')
+        }
+
+        TaoBaoFlow.prototype.waitRecevieGoods = function () {
+            console.log('请等待签收商品')
+        }
+        TaoBaoFlow.prototype.onePressToBuy = function () {
+            this.searchGoods();
+            if (this.hasOwnProperty('haveNoticeProductionDate') && this.haveNoticeProductionDate()) {
+                this.selectRefreshGoods();
+            }
+            this.selectGoods();
+            this.buyGoods();
+            this.salerSendGoods();
+            this.waitRecevieGoods();
+        }
+
+        function Buy(brand, type) {
+            this.brand = brand;
+            this.type = type;
+            this.searchGoods = function () {
+                // console.log(`通过${this.brand}去搜索`);// es6
+                console.log('通过' + this.brand + '去搜索');
+            }
+            this.selectGoods = function () {
+                console.log('比较价格,选择较为实惠的' + this.brand);
+            }
+            this.haveNoticeProductionDate = function () {
+                if (this.type === '食品') {
+                    return true;
+                }
+                return false;
+            }
+        }
+        Buy.prototype = new TaoBaoFlow();//原型覆盖， 原型.prototype=实例._proto_
+        var buyShirt = new Buy('艾格');
+        buyShirt.onePressToBuy();
+        var buySeaFood = new Buy('螃蟹', '食品')
+        buySeaFood.onePressToBuy();
+    </script>
+</body>
+</html>
