@@ -1,0 +1,39 @@
+.title{
+    width: 100%;
+    height: 30px;
+    background-color: #039BE5;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 30px;
+}
+.time{
+    width: 100%;
+    height: 30px;
+    background-color:#F5F5F5;
+    padding-left: 8px;
+    line-height: 30px;
+}
+.context{
+    width: 100%;
+    height: 101px;
+    background-color:#FFFFFF;
+    padding-left: 8px;
+}
+.tail{
+    width: 100%;
+    height: 65px;
+    background-color:pink;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+.article-title{
+    font-family: PingFangSC-Regular;
+    font-size: 25px;
+    color: #333333;
+    letter-spacing: 0;
+       
+}

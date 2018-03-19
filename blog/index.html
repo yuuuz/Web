@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/reset.css">
+</head>
+
+<body>
+    <div class="title">赵钰&李涛的博客</div>
+    <div class="time"></div>
+    <div class="context">
+        <div class="article-title">交互设计评审会</div>
+        <div>我們是共產主義接班人；巴拉巴拉巴拉，你这么美，你这么美</div>
+        <div>
+            <span>
+                <img src="./image/time.png" alt="">
+            </span>
+            <span></span>
+        </div>
+    </div>
+    <div class="tail">
+        <div>如果没有找到要参加的会议</div>
+        <div><a href="">联系博主</a></div>
+    </div>
+    <script>
+        init();
+        function init() {
+            initTime();
+        }
+        function initTime() {
+            var timeNodes = document.getElementsByClassName('time')
+            for (var i = 0; i < timeNodes.length; i++) {
+                timeNodes[i].innerText = getCurrentTime();
+            }
+        }
+        function getCurrentTime() {
+            var date = new Date();
+            return `${date.getFullYear()}-${(date.getMonth() + 1)}-${date.getDate()}`
+        }
+    </script>
+</body>
+
+</html>
